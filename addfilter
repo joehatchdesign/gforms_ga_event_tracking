@@ -1,0 +1,60 @@
+add_filter("gform_next_button_2_17", "track_step_1", 10, 2);
+function track_step_1($button, $form) {
+    $dom = new DOMDocument();
+    $dom->loadHTML($button);
+    $input = $dom->getElementsByTagName('input')->item(0);
+    if ($input->hasAttribute('onclick')) {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 1');".$input->getAttribute("onclick"));
+    } else {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 1');");
+    }
+    return $dom->saveHtml();
+}
+add_filter("gform_next_button_2_7", "track_step_2", 10, 2);
+function track_step_2($button, $form) {
+    $dom = new DOMDocument();
+    $dom->loadHTML($button);
+    $input = $dom->getElementsByTagName('input')->item(0);
+    if ($input->hasAttribute('onclick')) {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 2');".$input->getAttribute("onclick"));
+    } else {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 2');");
+    }
+    return $dom->saveHtml();
+}
+add_filter("gform_next_button_2_18", "track_step_3", 10, 2);
+function track_step_3($button, $form) {
+    $dom = new DOMDocument();
+    $dom->loadHTML($button);
+    $input = $dom->getElementsByTagName('input')->item(0);
+    if ($input->hasAttribute('onclick')) {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 3');".$input->getAttribute("onclick"));
+    } else {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 3');");
+    }
+    return $dom->saveHtml();
+}
+add_filter("gform_next_button_2_13", "track_step_4", 10, 2);
+function track_step_4($button, $form) {
+    $dom = new DOMDocument();
+    $dom->loadHTML($button);
+    $input = $dom->getElementsByTagName('input')->item(0);
+    if ($input->hasAttribute('onclick')) {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 4');".$input->getAttribute("onclick"));
+    } else {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Step 4');");
+    }
+    return $dom->saveHtml();
+}
+add_filter("gform_submit_button_2", "track_submit_btn", 10, 2);
+function track_submit_btn($button, $form) {
+    $dom = new DOMDocument();
+    $dom->loadHTML($button);
+    $input = $dom->getElementsByTagName('input')->item(0);
+    if ($input->hasAttribute('onclick')) {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Submit');".$input->getAttribute("onclick"));
+    } else {
+        $input->setAttribute("onclick="ga('send', 'event', 'Quote Form', 'Submit');");
+    }
+    return $dom->saveHtml();
+}
