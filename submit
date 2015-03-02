@@ -1,0 +1,12 @@
+add_filter( 'gform_submit_button_2', 'add_conversion_tracking_code', 10, 2);
+function add_conversion_tracking_code($button, $form) {
+	$dom = new DOMDocument();
+	$dom->loadHTML($button);
+	$input = $dom->getElementsByTagName('input')->item(0);
+	if ($input->hasAttribute('onclick')){
+		$input->setAttribute('onclick', "ga('send', 'event', 'Quote Form Steps', 'Submit');".$input->getAttribute('onclick'));
+	} else {
+		$input->setAttribute('onclick', "ga('send', 'event', 'Quote Form Steps', 'Submit');");
+	}
+	return $dom->saveHtml();
+}
